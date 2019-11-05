@@ -31,6 +31,95 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--prepare the libs-->
+
+
+        <!-- Load Leaflet from CDN -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+              integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+              crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+                integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+
+
+        <!-- Load Esri Leaflet from CDN -->
+        <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+                integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+        crossorigin=""></script>
+
+        <!-- Load Esri Leaflet Geocoder from CDN -->
+        <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+              integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+              crossorigin="">
+        <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+                integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+        crossorigin=""></script>
+
+
+        <style>
+            body { margin:0; padding:0; }
+            #map {height: 1600px; }
+			
+			
+body {font-family: Garamond;}
+p {
+
+  color: #2C3531;
+  
+}
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #379683;
+  
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  color: #EDF5E1
+  
+  
+  
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #8EE4AF;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #116466;
+  padding: 10px;
+}
+
+        </style>
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
@@ -62,336 +151,160 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 
 	</head>
 	<body>
-		
-		<!-- Header -->
-		<header id="fh5co-header" role="banner">
-			
-			<!-- Logo -->
-			<div id="fh5co-logo" class="text-center">
-				<a href="index.html">
-					<img src="images/logo.png" alt="Image">
-				</a>
+    <body>
+<table style="width:100%">
 
-			</div>
-			<!-- Logo -->
-			
-			<!-- Mobile Toggle Menu Button -->
-			<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-			
-			<!-- Main Nav -->
-			<div id="fh5co-main-nav">
-			<nav id="fh5co-nav" role="navigation">
-				<ul>
-					<li class="active">
-						<a href="index.html">Home</a>
-					</li>
-					<li>
-						<a href="inside-page.html">Inside Page</a>
-					</li>
-					<li>
-						<a href="elements.html">Elements</a>
-					</li>
-				</ul>
-			</nav>
-			</div>
-			<!-- Main Nav -->
-		</header>
-		<!-- Header -->
-		
-		<!-- Main -->
-		<main role="main">
 
-				<!-- Slider -->
-				<div class="container">
-					<div class="row">
-						<div class="col-md-8 col-md-push-4 col-sm-8 col-sm-push-4">
-							<h1 class="fh5co-intro"><span class="fh5co-border"></span>Light is a free responsive HTML5 template using bootstrap released under <a href="https://creativecommons.org/licenses/by/3.0/us/" target="_blank">Creative Commons 3.0</a>. Lovely crafted by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a></h1>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<div class="owl-carousel owl-carousel-fullwidth">
-						    <div class="item"><img src="images/slide_1.jpg" alt="image"></div>
-						    <div class="item"><img src="images/slide_2.jpg" alt="image"></div>
-						    <div class="item"><img src="images/slide_3.jpg" alt="image"></div>
-						    <div class="item"><img src="images/slide_4.jpg" alt="image"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Slider -->
 
-				<div class="fh5co-spacer fh5co-spacer-lg"></div>
-				
-				<!-- Features -->
-				<div class="fh5co-features">
-					<div class="container">
-						<div class="fh5co-section-title text-center">
-							<h2 class="fh5co-title">Features</h2>
-						</div>
-						<div class="fh5co-spacer fh5co-spacer-sm"></div>
-						<div class="row">
-
-							<div class="col-md-4 col-sm-6 fh5co-feature text-center">
-								<span class="fh5co-feature-icon">
-									<i class="icon-command"></i>
-								</span>
-								<h3 class="fh5co-feature-title">Simplicity</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores saepe, sunt eos necessitatibus consectetur.</p>
-							</div>
-							<div class="col-md-4 col-sm-6 fh5co-feature text-center">
-								<span class="fh5co-feature-icon">
-									<i class="icon-eye2"></i>
-								</span>
-								<h3 class="fh5co-feature-title">Retina Ready</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores saepe, sunt eos necessitatibus consectetur.</p>
-							</div>
-
-							<div class="col-md-4 col-sm-6 fh5co-feature text-center">
-								<span class="fh5co-feature-icon">
-									<i class="icon-monitor"></i>
-								</span>
-								<h3 class="fh5co-feature-title">Fully Responsive</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores saepe, sunt eos necessitatibus consectetur.</p>
-							</div>
-
-							<div class="col-md-4 col-sm-6 fh5co-feature text-center">
-								<span class="fh5co-feature-icon">
-									<i class="icon-cog2"></i>
-								</span>
-								<h3 class="fh5co-feature-title">Intuitive</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores saepe, sunt eos necessitatibus consectetur.</p>
-							</div>
-
-							<div class="col-md-4 col-sm-6 fh5co-feature text-center">
-								<span class="fh5co-feature-icon">
-									<i class="icon-paragraph"></i>
-								</span>
-								<h3 class="fh5co-feature-title">Typography</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores saepe, sunt eos necessitatibus consectetur.</p>
-							</div>
-							<div class="col-md-4 col-sm-6 fh5co-feature text-center">
-								<span class="fh5co-feature-icon">
-									<i class="icon-box2"></i>
-								</span>
-								<h3 class="fh5co-feature-title">Out of the Box</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores saepe, sunt eos necessitatibus consectetur.</p>
-							</div>
-
-						</div>
-					</div>
-				</div>
-				<!-- Features -->
-
-				<div class="fh5co-spacer fh5co-spacer-lg"></div>
-				
-				<!-- Section Half -->
-				<div class="fh5co-half">
-					<div class="fh5co-half-img fh5co-50" style="background-image: url(images/slide_2.jpg)"></div>
-					<div class="fh5co-half-text fh5co-50 fh5co-right">
-						<div class="fh5co-text">
-							
-							<div class="container-fluid">
-								<div class="row">
-									<div class="col-md-9 col-md-push-1 col-sm-9 col-sm-push-1">
-										<div class="fh5co-section-title text-left">
-											<h2 class="fh5co-title">Clean &amp; Minimal Design</h2>
-										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa doloribus molestias, explicabo itaque, quos consequatur quam, tempore enim voluptatum nulla quas iusto voluptate quae modi commodi maiores voluptatibus perspiciatis aut.</p>		
-										<div class="fh5co-spacer fh5co-spacer-xxs"></div>
-										<p><a href="#" class="btn btn-primary btn-md fh5co-btn-other-option">Get Started</a> <span class="fh5co-other-option"><span class="fh5co-or text-muted">or</span> <a href="#" class="btn-link">Learn More</a></span></p>
-									</div>
-								</div>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-				<!-- Section Half -->
-
-				<div class="fh5co-spacer fh5co-spacer-lg"></div>
-				
-				<!-- Testimonial -->
-				<div class="container">
-						<div class="fh5co-section-title text-center">
-							<h2 class="fh5co-title">Our Clients Say</h2>
-						</div>
-						<br class="fh5co-spacer fh5co-spacer-sm">
-						<div class="owl-carousel-fullwidth">
-							<div class="item">
-								<p class="text-center quote">&ldquo;Design must be functional and functionality must be translated into visual aesthetics, without any reliance on gimmicks that have to be explained. &rdquo; <cite class="author">&mdash; Ferdinand A. Porsche</cite></p>
-							</div>
-							<div class="item">
-								<p class="text-center quote">&ldquo;Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while. &rdquo;<cite class="author">&mdash; Steve Jobs</cite></p>
-							</div>
-							<div class="item">
-								<p class="text-center quote">&ldquo;I think design would be better if designers were much more skeptical about its applications. If you believe in the potency of your craft, where you choose to dole it out is not something to take lightly. &rdquo;<cite class="author">&mdash; Frank Chimero</cite></p>
-							</div>
-						</div>
-				</div>
-				<!-- Testimonial -->
-
-				<div class="fh5co-spacer fh5co-spacer-lg"></div>
-
-				<!-- Press -->
-				<div class="fh5co-press">
-					<div class="container">
-
-						<div class="fh5co-section-title text-center">
-							<h2 class="fh5co-title">Press</h2>
-						</div>
-						<div class="fh5co-spacer fh5co-spacer-sm"></div>
-						<div class="row">
-
-							<div class="col-md-6">
-								<!-- Press Item -->
-								<div class="fh5co-press-item">
-									<div class="fh5co-press-img" style="background-image: url(images/slide_2.jpg)">
-									</div>
-									<div class="fh5co-press-text">
-										<h3 class="h2 fh5co-press-title">Simplicity <span class="fh5co-border"></span></h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eius quos similique suscipit dolorem cumque vitae qui molestias illo accusantium...</p>
-									</div>
-								</div>
-								<!-- Press Item -->
-							</div>
-
-							<div class="col-md-6">
-								<!-- Press Item -->
-								<div class="fh5co-press-item">
-									<div class="fh5co-press-img" style="background-image: url(images/slide_1.jpg)">
-									</div>
-									<div class="fh5co-press-text">
-										<h3 class="h2 fh5co-press-title">Versatile <span class="fh5co-border"></span></h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eius quos similique suscipit dolorem cumque vitae qui molestias illo accusantium...</p>
-									</div>
-								</div>
-								<!-- Press Item -->
-							</div>
-							
-							<div class="col-md-6">
-								<!-- Press Item -->
-								<div class="fh5co-press-item">
-									<div class="fh5co-press-img" style="background-image: url(images/slide_3.jpg);">
-									</div>
-									<div class="fh5co-press-text">
-										<h3 class="h2 fh5co-press-title">Aesthetic <span class="fh5co-border"></span></h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eius quos similique suscipit dolorem cumque vitae qui molestias illo accusantium...</p>
-									</div>
-								</div>
-								<!-- Press Item -->
-							</div>
-
-							<div class="col-md-6">
-								<!-- Press Item -->
-								<div class="fh5co-press-item">
-									<div class="fh5co-press-img" style="background-image: url(images/slide_4.jpg);">
-									</div>
-									<div class="fh5co-press-text">
-										<h3 class="h2 fh5co-press-title">Creative <span class="fh5co-border"></span></h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eius quos similique suscipit dolorem cumque vitae qui molestias illo accusantium...</p>
-									</div>
-								</div>
-								<!-- Press Item -->
-							</div>
-
-						</div>
-						<div class="fh5co-spacer fh5co-spacer-xs"></div>
-						<div class="row">
-							<div class="col-md-6 col-md-offset-3">
-								<a href="#" class="btn btn-outline btn-md btn-block">View All Press Releases</a>
-							</div>
-						</div>
-						
-
+    <tr> 
+        <th style="width:800px">>Hello</th> 
+        <th> Story Map <p id ="lastnames"> </P> </th>
+    </tr>
+	
+	
+	
+	
+	
+	
+    <tr>      <td>  <div id="map"></div> </td>
+              <td>
+				<p> This is a story map</p>
+			  <div class="tab">
+  <button class="tablinks" onclick="openPage(event, 'BARTON')"> BARTON</button>
+  <button class="tablinks" onclick="openPage(event, 'CANNON')">CANNON</button>
+  <button class="tablinks" onclick="openPage(event, 'CONTE')"> CONTE</button>
+  <button class="tablinks" onclick="openPage(event, 'HUTNEK')"> HUTNEK</button>
+  <button class="tablinks" onclick="openPage(event, 'WEINBERG')"> WEINBERG</button>
 
 					</div>
-				</div>
-				<!-- Press -->
-				
+<div id="BARTON" class="tabcontent"  align="center">
+  <h2>BARTON</h2>
+  <iframe height="800" width="600" src="stories/BARTON.html" frameBorder="0" ></iframe>
+</div>
+<div id="CANNON" class="tabcontent"  align="center">
+  <h2>CANNON</h2>
+  <iframe height="800" width="600" src= "stories/CANNON.html" frameBorder="0" ></iframe>
+</div>
 
-		</main>
-		<!-- Main -->
-		
-		<!-- Footer -->
-		<footer id="fh5co-footer" role="contentinfo">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-3 col-xs-12 fh5co-footer-widget ">
-						<img src="images/logo.png" alt="Image" class="img-responsive">
-					</div>
-					<div class="col-md-2 col-xs-6 fh5co-footer-widget">
-						<ul>
-							<li><a href="#">Our Team</a></li>
-							<li><a href="#">Contact Us</a></li>
-							<li><a href="#">Support</a></li>
-							<li><a href="#">Blog</a></li>
-						</ul>
-					</div>
-					<div class="col-md-2 col-xs-6 fh5co-footer-widget">
-						<ul>
-							<li><a href="#">Our Clients</a></li>
-							<li><a href="#">Our Culture</a></li>
-							<li><a href="#">Capabilities</a></li>
-							<li><a href="#">Features</a></li>
-						</ul>
-					</div>
-				
-					<div class="col-md-5 col-xs-12 fh5co-footer-widget">
-						<div class="fh5co-section-title">
-							<h5 class="fh5co-title">Subscribe</h5>
-						</div>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure sint, inventore excepturi aliquid ipsam officiis!</p>
-						<form class="form-inline" id="fh5co-form-subscribe">
-						  <div class="form-group pull-left">
-						    <input type="email" class="form-control input-lg input-block" id="subscribe-email" placeholder="info@freehtml5.co">
-						  </div>
-						  <button type="submit" class="btn btn-primary btn-subscribe-send">Send</button>
-						  
-						</form>
-					</div>
-				</div>
-				<div class="fh5co-spacer fh5co-spacer-md"></div>
-				<div class="row">
-					<div class="col-md-6">
-						<p class="fh5co-copyright">&copy; Light 2015. All Rights Reserved. <br>Designed by <a href="http://freehtml5.co" target="_blank">FREEHTML5.co</a> and Images by <a href="http://deathtothestockphoto.com/" target="_blank">DeathtoStock</a></p>
-					</div>
-					<div class="col-md-6">
-						<ul class="fh5co-social">
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-instagram"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
-							<li><a href="#"><i class="icon-pinterest"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<!-- Footer -->
-		
-		<!-- Go To Top -->
-		<a href="#" class="fh5co-gotop"><i class="ti-shift-left"></i></a>
-		
-			
-		<!-- jQuery -->
-		<script src="js/jquery-1.10.2.min.js"></script>
-		<!-- jQuery Easing -->
-		<script src="js/jquery.easing.1.3.js"></script>
-		<!-- Bootstrap -->
-		<script src="js/bootstrap.js"></script>
-		<!-- Owl carousel -->
-		<script src="js/owl.carousel.min.js"></script>
-		<!-- Magnific Popup -->
-		<script src="js/jquery.magnific-popup.min.js"></script>
-		<!-- Easy Responsive Tabs -->
-		<script src="js/easyResponsiveTabs.js"></script>
-		<!-- FastClick for Mobile/Tablets -->
-		<script src="js/fastclick.js"></script>
-		<!-- Velocity -->
-		<script src="js/velocity.min.js"></script>
-		<!-- Main JS -->
-		<script src="js/main.js"></script>
+<div id="CONTE" class="tabcontent"  align="center">
+  <h2>CONTE</h2>
+  <iframe height="800" width="600" src="stories/CONTE.html" frameBorder="0" ></iframe>
+</div>
 
+<div align="center" id="HUTNEK" class="tabcontent">
+  <h2 style="color: #05386B;" align ="center">HUTNEK</h2>
+  <iframe height="800" width="600" src="stories/HUTNEK.html" frameBorder="0" ></iframe>
+</div> 
+
+
+<div align="center" id="WEINBERG" class="tabcontent">
+  <h2 style="color: #05386B;" align ="center">WEINBERG</h2>
+  <iframe height="800" width="600" src="stories/WEINBERG.html" frameBorder="0" ></iframe>
+</div> 
+
+
+</td>
+    </tr>
+	
+	
+	
+</table>
+
+<script>
+function openPage(evt, pagename) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(pagename).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+        <script>
+            //Set up the base map, with center being in the United States
+            //Set the basemap as being the topographic map and adding to map (not mymap)
+    var map = L.map('map').setView([39.648559, -105.043300], 15);
+    var layer1 = L.esri.basemapLayer('Topographic');
+    layer1.addTo(map);            
+
+            //Add the three different layers
+            
+            //Regional Boundary
+            //URL:https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/NPS_Regional_Boundaries/FeatureServer/0
+            //Color: #F0DCB9
+            
+ 
+    
+            var layer6 = L.esri.featureLayer({
+                url: 'https://services1.arcgis.com/44C95LOqZjbh8Row/arcgis/rest/services/Sisters_in_Service_WFL1/FeatureServer/0',
+                simplifyFactor: 0.5,
+                precision: 5,
+                //style choosen: 
+                style: {
+                    color: '#D44028', weight: 1, opacity: .15
+                }
+            });
+            layer6.addTo(map);    
+            
+            
+  layer6.bindPopup(function (layer) {
+    return L.Util.template('{FIRST_NME} {LAST_NME}', layer.feature.properties);
+  });            
+            
+            
+            
+            var layer7 = L.esri.featureLayer({
+                url: 'https://services1.arcgis.com/44C95LOqZjbh8Row/arcgis/rest/services/Sisters_in_Service_WFL1/FeatureServer/1',
+                simplifyFactor: 0.5,
+                precision: 5,
+                //style choosen: 
+                style: {
+                    color: '#D44028', weight: 1, opacity: .15
+                }
+            });
+            layer7.addTo(map);    
+ 
+        var names = L.Util.template('{LAST_NAME}', layer.feature.properties);
+        document.getElementById("lastnames").innerHTML = names;
+    
+            
+
+            //Create the groups to create the legend off of
+            var basemap = {
+                "Topographic": layer1
+            };
+            //The boundaries will contain the 3 different boundary types
+            var Boundaries = {
+
+                "VLP Map": layer6,
+                "Paths": layer7
+                
+            };
+            
+            
+            
+            //Create the layer control
+            var layerControl = L.control.layers(basemap, Boundaries).addTo(map);
+
+            //Create the search control - geocoding
+            //modified from ESRIGeocoding.html
+            var searchControl = L.esri.Geocoding.geosearch({
+                position: 'topright',
+                zoomToResult: true,
+                title: "Type an address to start the search"
+            });            
+            searchControl.addTo(map);            
+
+
+
+
+
+        </script>
 	</body>
 </html>
