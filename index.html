@@ -62,7 +62,7 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 
         <style>
             body { margin:0; padding:0; }
-            #map {height: 1600px; }
+            map {height: 1600px; }
 			
 			
 body {font-family: Garamond;}
@@ -120,7 +120,16 @@ p {
 }
 
         </style>
-
+<style>
+  #info-pane {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 400;
+    padding: 1em;
+    background: white;
+  }
+</style>
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
 
@@ -157,8 +166,11 @@ p {
 
 
     <tr> 
-        <th style="width:800px">>Hello</th> 
-        <th> Story Map <p id ="lastnames"> </P> </th>
+        <th style="width:800px">
+		The Map
+		<div id="info-pane" class="leaflet-bar">Hover for path type </div>
+		</th> 
+        <th> The Stories <p id ="lastnames"> </P> </th>
     </tr>
 	
 	
@@ -166,39 +178,45 @@ p {
 	
 	
 	
-    <tr>      <td>  <div id="map"></div> </td>
+    <tr>      
+		<td>  
+		
+			<div id="map"></div> 
+					
+	
+		</td>
               <td>
 				<p> This is a story map</p>
 			  <div class="tab">
-  <button class="tablinks" onclick="openPage(event, 'BARTON')"> BARTON</button>
-  <button class="tablinks" onclick="openPage(event, 'CANNON')">CANNON</button>
-  <button class="tablinks" onclick="openPage(event, 'CONTE')"> CONTE</button>
-  <button class="tablinks" onclick="openPage(event, 'HUTNEK')"> HUTNEK</button>
-  <button class="tablinks" onclick="openPage(event, 'WEINBERG')"> WEINBERG</button>
+  <button class="tablinks" onclick="openPage(event, 'BARTON')"> Barton</button>
+  <button class="tablinks" onclick="openPage(event, 'CANNON')">Cannon</button>
+  <button class="tablinks" onclick="openPage(event, 'CONTE')"> Conte</button>
+  <button class="tablinks" onclick="openPage(event, 'HUTNEK')"> Hutnek</button>
+  <button class="tablinks" onclick="openPage(event, 'WEINBERG')"> Weinberg</button>
 
 					</div>
 <div id="BARTON" class="tabcontent"  align="center">
-  <h2>BARTON</h2>
+  <h2>Barton's Story</h2>
   <iframe height="800" width="600" src="stories/BARTON.html" frameBorder="0" ></iframe>
 </div>
 <div id="CANNON" class="tabcontent"  align="center">
-  <h2>CANNON</h2>
+  <h2>Cannon's Story</h2>
   <iframe height="800" width="600" src= "stories/CANNON.html" frameBorder="0" ></iframe>
 </div>
 
 <div id="CONTE" class="tabcontent"  align="center">
-  <h2>CONTE</h2>
+  <h2>Conte's Story</h2>
   <iframe height="800" width="600" src="stories/CONTE.html" frameBorder="0" ></iframe>
 </div>
 
 <div align="center" id="HUTNEK" class="tabcontent">
-  <h2 style="color: #05386B;" align ="center">HUTNEK</h2>
+  <h2 style="color: #05386B;" align ="center">Hutnek's Story</h2>
   <iframe height="800" width="600" src="stories/HUTNEK.html" frameBorder="0" ></iframe>
 </div> 
 
 
 <div align="center" id="WEINBERG" class="tabcontent">
-  <h2 style="color: #05386B;" align ="center">WEINBERG</h2>
+  <h2 style="color: #05386B;" align ="center">Weinberg's Story</h2>
   <iframe height="800" width="600" src="stories/WEINBERG.html" frameBorder="0" ></iframe>
 </div> 
 
@@ -263,16 +281,36 @@ function openPage(evt, pagename) {
                 url: 'https://services1.arcgis.com/44C95LOqZjbh8Row/arcgis/rest/services/Sisters_in_Service_WFL1/FeatureServer/1',
                 simplifyFactor: 0.5,
                 precision: 5,
+				
+				dashOffset: '0',
                 //style choosen: 
-                style: {
-                    color: '#D44028', weight: 1, opacity: .15
+                style: function (feature) {
+				var c;
+				var o = 0.75;
+                   switch(feature.properties.Travel){
+				   case 'Walk':
+				   c = '#007D7D';
+				   offset = '20, 20';
+				   break;
+				   case 'Drive':
+				   c = '#ff0000';
+				   offset = '0';
+
+				   break;
+				   default:
+				   c = '#C0C0C0';
+				   
                 }
-            });
+				return {color: c, opacity: o, weight: 5, dashArray: offset};
+            }});
             layer7.addTo(map);    
- 
-        var names = L.Util.template('{LAST_NAME}', layer.feature.properties);
-        document.getElementById("lastnames").innerHTML = names;
-    
+ layer7.on('mouseout', function (e) {
+    document.getElementById('info-pane').innerHTML = 'Hover for path type';
+  });
+
+  layer7.on('mouseover', function (e) {
+    document.getElementById('info-pane').innerHTML = e.layer.feature.properties.Travel;
+  });
             
 
             //Create the groups to create the legend off of
@@ -286,9 +324,7 @@ function openPage(evt, pagename) {
                 "Paths": layer7
                 
             };
-            
-            
-            
+
             //Create the layer control
             var layerControl = L.control.layers(basemap, Boundaries).addTo(map);
 
